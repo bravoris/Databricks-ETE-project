@@ -1,0 +1,12 @@
+#commands to create resource group and storage account
+az group create --name rg-tfstate --location eastus
+
+az storage account create \
+  --name sttfstatecustmed \
+  --resource-group rg-tfstate \
+  --location eastus \
+  --sku Standard_LRS
+
+az storage container create \
+  --name tfstate \
+  --account-name sttfstatecustmed
