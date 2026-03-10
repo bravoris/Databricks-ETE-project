@@ -21,9 +21,20 @@ module "databricks" {
   databricks_workspace_name = var.databricks_workspace_name
 }
 
-module "rbac" {
-  source = "./modules/rbac"
+# module "unity_catalog" {
+#   source = "./modules/unity_catalog"
 
-  storage_account_id = module.storage_account.storage_account_id
-  databricks_principal_id = module.databricks.managed_identity_principal_id
-}
+#   metastore_name = "custmed-metastore"
+#   region         = var.location
+
+#   storage_root = "abfss://unity-metastore@${var.storage_account_name}.dfs.core.windows.net/"
+
+#   workspace_id = module.databricks.workspace_id
+# }
+
+# module "rbac" {
+#   source = "./modules/rbac"
+
+#   storage_account_id = module.storage_account.storage_account_id
+#   databricks_principal_id = module.databricks.managed_identity_principal_id
+# }
